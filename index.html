@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ganesh Chavithi Celebrations</title>
+<style>
+:root{
+  --bg:#080612;--card:rgba(255,255,255,.07);--text:#fff7ed;--muted:#c9bdd0;
+  --gold:#ffb84d;--orange:#ff6b35;--pink:#ff4f9a;--border:rgba(255,255,255,.14)
+}
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at 20% 0%,#30112f 0,#10081c 35%,var(--bg) 75%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.nav{position:fixed;top:18px;left:18px;z-index:50}
+.menuBtn{width:52px;height:52px;border:1px solid var(--border);border-radius:16px;background:rgba(10,8,18,.78);backdrop-filter:blur(14px);color:white;cursor:pointer;font-size:25px}
+.menu{display:none;margin-top:10px;width:220px;padding:10px;border:1px solid var(--border);border-radius:18px;background:rgba(12,8,20,.95);backdrop-filter:blur(18px);box-shadow:0 20px 50px #0008}
+.menu.open{display:block}
+.menu a{display:block;padding:14px;border-radius:12px;color:#eee}
+.menu a:hover{background:#ffffff12;color:var(--gold)}
+.hero{min-height:92vh;display:grid;place-items:center;text-align:center;padding:100px 20px 60px;position:relative;overflow:hidden}
+.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;filter:blur(70px);opacity:.35}
+.hero:before{width:300px;height:300px;background:#ff6b35;top:15%;left:8%}
+.hero:after{width:350px;height:350px;background:#9c3cff;right:5%;bottom:5%}
+.heroInner{position:relative;z-index:1;max-width:950px}
+.badge{display:inline-block;padding:8px 16px;border:1px solid #ffffff22;border-radius:999px;background:#ffffff0b;color:var(--gold);font-size:13px;letter-spacing:2px;text-transform:uppercase}
+h1{font-size:clamp(42px,8vw,92px);line-height:.95;margin:22px 0 18px;background:linear-gradient(90deg,#fff,#ffc66b,#ff6b35,#ff9fd0);-webkit-background-clip:text;color:transparent}
+.hero p{max-width:700px;margin:0 auto;color:var(--muted);font-size:18px;line-height:1.7}
+.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{padding:13px 20px;border-radius:999px;border:1px solid var(--border);cursor:pointer;color:white;background:#ffffff0c}
+.btn.primary{background:linear-gradient(90deg,var(--orange),var(--pink));border:0}
+section{max-width:1180px;margin:auto;padding:80px 20px}
+.sectionTitle{text-align:center;margin-bottom:35px}
+.sectionTitle span{color:var(--gold);font-size:13px;letter-spacing:2px;text-transform:uppercase}
+.sectionTitle h2{font-size:clamp(30px,5vw,52px);margin:8px 0}
+.sectionTitle p{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:24px;overflow:hidden;backdrop-filter:blur(12px)}
+.card img{width:100%;height:280px;object-fit:cover;display:block}
+.cardBody{padding:18px}.cardBody h3{margin:0 0 6px}.muted{color:var(--muted)}
+.gallery{position:relative}
+.gallery img,.gallery video{width:100%;height:min(62vw,560px);object-fit:cover;border-radius:24px;border:1px solid var(--border);background:#120d1b}
+.galleryControls{display:flex;justify-content:center;gap:10px;margin-top:14px}
+.yearTabs{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+.yearTabs button.active{background:linear-gradient(90deg,var(--orange),var(--pink));border-color:transparent}
+.pay{display:grid;grid-template-columns:1fr 320px;gap:30px;align-items:center}
+.qr{background:white;border-radius:24px;padding:18px;text-align:center;color:#111}
+.qr img{width:100%;aspect-ratio:1;object-fit:contain}
+.upi{font-size:20px;color:#fff;font-weight:700;word-break:break-word}
+footer{border-top:1px solid var(--border);padding:35px 20px;text-align:center;color:var(--muted)}
+.lightbox{position:fixed;inset:0;background:#000d;display:none;align-items:center;justify-content:center;padding:20px;z-index:100}
+.lightbox.open{display:flex}.lightbox img,.lightbox video{max-width:95vw;max-height:90vh;border-radius:18px}
+.close{position:absolute;top:18px;right:18px;width:46px;height:46px;border-radius:50%;border:1px solid #ffffff44;background:#ffffff15;color:white;cursor:pointer}
+.note{padding:18px;border:1px dashed #ffffff25;border-radius:18px;color:var(--muted);line-height:1.6;background:#ffffff05}
+@media(max-width:700px){.pay{grid-template-columns:1fr}.card img{height:240px}section{padding:60px 15px}.hero{min-height:85vh}}
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     EDITABLE CONTENT
+     Replace the names, text and file paths below.
+     Put your own photos/videos inside the images/ and videos/ folders.
+     ========================================================= -->
+<script>
+const CONFIG = {
+  title: "Ganesh Chavithi Celebrations",
+  year: "2026",
+  location: "YOUR LOCATION",
+  organization: "YOUR COMMUNITY NAME",
+  welcome: "Welcome to our annual Ganesh Chavithi celebration. Celebrate devotion, unity and beautiful memories together.",
+
+  heroImage: "images/2026/hero.jpg",
+
+  admins: [
+    {name:"Admin Name 1", role:"President", image:"images/admins/admin1.jpg", description:"Community organizer"},
+    {name:"Admin Name 2", role:"Secretary", image:"images/admins/admin2.jpg", description:"Event coordinator"},
+    {name:"Admin Name 3", role:"Treasurer", image:"images/admins/admin3.jpg", description:"Finance & donations"}
+  ],
+
+  members: [
+    {name:"Member Name 1", image:"images/members/member1.jpg"},
+    {name:"Member Name 2", image:"images/members/member2.jpg"},
+    {name:"Member Name 3", image:"images/members/member3.jpg"},
+    {name:"Member Name 4", image:"images/members/member4.jpg"}
+  ],
+
+  lastYear: {
+    year:"2025",
+    photos:[
+      "images/2025/photo1.jpg",
+      "images/2025/photo2.jpg",
+      "images/2025/photo3.jpg"
+    ],
+    videos:[
+      "videos/2025/video1.mp4",
+      "videos/2025/video2.mp4"
+    ]
+  },
+
+  archives: {
+    "2026":{
+      photos:["images/2026/photo1.jpg","images/2026/photo2.jpg","images/2026/photo3.jpg"],
+      videos:["videos/2026/video1.mp4","videos/2026/video2.mp4"]
+    },
+    "2025":{
+      photos:["images/2025/photo1.jpg","images/2025/photo2.jpg","images/2025/photo3.jpg"],
+      videos:["videos/2025/video1.mp4","videos/2025/video2.mp4"]
+    }
+  },
+
+  payment:{
+    upi:"YOUR_UPI_ID@upi",
+    qr:"payments/qr.png",
+    contact:"YOUR CONTACT NUMBER",
+    message:"Your contribution helps us organize the Ganesh Chavithi celebration."
+  }
+};
+</script>
+
+<div class="nav">
+  <button class="menuBtn" id="menuBtn" aria-label="Open menu">☰</button>
+  <nav class="menu" id="menu">
+    <a href="#home">Home</a><a href="#admins">Admins</a><a href="#members">Members</a>
+    <a href="#idols">Ganesh Idols</a><a href="#payments">Payments</a>
+  </nav>
+</div>
+
+<header class="hero" id="home">
+  <div class="heroInner">
+    <div class="badge" id="heroBadge"></div>
+    <h1 id="heroTitle"></h1>
+    <p id="heroText"></p>
+    <div class="actions">
+      <a class="btn primary" href="#lastYear">View Celebration</a>
+      <a class="btn" href="#payments">Donate</a>
+      <a class="btn" href="#admins">Our Community</a>
+    </div>
+  </div>
+</header>
+
+<section id="lastYear">
+  <div class="sectionTitle"><span>Memories</span><h2>Last Year's Celebration</h2><p id="lastYearText"></p></div>
+  <div class="gallery">
+    <img id="lastPhoto" src="" alt="Last year's Ganesh Chavithi celebration">
+  </div>
+  <div class="galleryControls">
+    <button class="btn" onclick="changeLast(-1)">← Previous</button>
+    <button class="btn primary" onclick="openLightbox('lastPhoto')">Full Screen</button>
+    <button class="btn" onclick="changeLast(1)">Next →</button>
+  </div>
+  <div style="height:24px"></div>
+  <div class="gallery"><video id="lastVideo" controls playsinline></video></div>
+  <div class="galleryControls">
+    <button class="btn" onclick="changeLastVideo(-1)">← Previous Video</button>
+    <button class="btn" onclick="changeLastVideo(1)">Next Video →</button>
+  </div>
+</section>
+
+<section id="admins">
+  <div class="sectionTitle"><span>Our Team</span><h2>Admins</h2><p>Meet the people organizing our celebration.</p></div>
+  <div class="grid" id="adminGrid"></div>
+</section>
+
+<section id="members">
+  <div class="sectionTitle"><span>Community</span><h2>Members</h2><p>Our celebration is made special by everyone.</p></div>
+  <div class="grid" id="memberGrid"></div>
+</section>
+
+<section id="idols">
+  <div class="sectionTitle"><span>Archive</span><h2>Ganesh Idols & Celebrations</h2><p>Explore our celebration memories year by year.</p></div>
+  <div class="yearTabs" id="yearTabs"></div>
+  <div class="gallery"><img id="archivePhoto" src="" alt="Ganesh Chavithi archive photo"></div>
+  <div class="galleryControls">
+    <button class="btn" onclick="changeArchive(-1)">← Previous</button>
+    <button class="btn primary" onclick="openLightbox('archivePhoto')">Full Screen</button>
+    <button class="btn" onclick="changeArchive(1)">Next →</button>
+  </div>
+  <div style="height:24px"></div>
+  <div class="gallery"><video id="archiveVideo" controls playsinline></video></div>
+  <div class="galleryControls">
+    <button class="btn" onclick="changeArchiveVideo(-1)">← Previous Video</button>
+    <button class="btn" onclick="changeArchiveVideo(1)">Next Video →</button>
+  </div>
+</section>
+
+<section id="payments">
+  <div class="sectionTitle"><span>Support</span><h2>Ganesh Chavithi Donations</h2><p id="paymentMessage"></p></div>
+  <div class="pay">
+    <div class="note">
+      <h3>Support Our Celebration</h3>
+      <p class="muted">Scan the QR code or use the UPI ID to contribute.</p>
+      <p class="upi" id="upi"></p>
+      <button class="btn primary" id="copyBtn" type="button">Copy UPI ID</button>
+      <p class="muted" id="contact"></p>
+    </div>
+    <div class="qr"><img id="qr" src="" alt="Donation QR code"></div>
+  </div>
+</section>
+
+<footer>
+  <strong id="footerTitle"></strong><br>
+  <span id="footerInfo"></span>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <button class="close" onclick="closeLightbox()">×</button>
+  <img id="lightboxImg" src="" alt="Full screen gallery image">
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+$("heroBadge").textContent=`${CONFIG.organization} • ${CONFIG.year}`;
+$("heroTitle").textContent=CONFIG.title;
+$("heroText").textContent=CONFIG.welcome;
+$("lastYearText").textContent=`Photos and videos from our ${CONFIG.lastYear.year} celebration.`;
+$("footerTitle").textContent=CONFIG.title;
+$("footerInfo").textContent=`${CONFIG.organization} • ${CONFIG.location}`;
+$("paymentMessage").textContent=CONFIG.payment.message;
+$("upi").textContent=CONFIG.payment.upi;
+$("contact").textContent=`Contact: ${CONFIG.payment.contact}`;
+$("qr").src=CONFIG.payment.qr;
+
+const imgFallback="data:image/svg+xml;charset=UTF-8,"+encodeURIComponent(
+  `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600"><rect width="100%" height="100%" fill="#171020"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#ffb84d" font-family="Arial" font-size="28">Replace with your photo</text></svg>`
+);
+
+function safeImg(el,src){el.src=src;el.onerror=()=>{el.src=imgFallback}}
+safeImg(document.createElement("img"),CONFIG.heroImage);
+
+let lastI=0,lastV=0;
+function setLast(){safeImg($("lastPhoto"),CONFIG.lastYear.photos[lastI]);$("lastVideo").src=CONFIG.lastYear.videos[lastV]||""}
+function changeLast(d){lastI=(lastI+d+CONFIG.lastYear.photos.length)%CONFIG.lastYear.photos.length;setLast()}
+function changeLastVideo(d){if(!CONFIG.lastYear.videos.length)return;lastV=(lastV+d+CONFIG.lastYear.videos.length)%CONFIG.lastYear.videos.length;setLast()}
+setLast();
+
+$("adminGrid").innerHTML=CONFIG.admins.map(a=>`<article class="card"><img src="${a.image}" alt="${a.name}"><div class="cardBody"><h3>${a.name}</h3><b>${a.role}</b><p class="muted">${a.description}</p></div></article>`).join("");
+$("memberGrid").innerHTML=CONFIG.members.map(m=>`<article class="card"><img src="${m.image}" alt="${m.name}"><div class="cardBody"><h3>${m.name}</h3></div></article>`).join("");
+
+const years=Object.keys(CONFIG.archives);let activeYear=years[0],archiveI=0,archiveV=0;
+$("yearTabs").innerHTML=years.map(y=>`<button class="btn ${y===activeYear?"active":""}" onclick="selectYear('${y}')">${y}</button>`).join("");
+function selectYear(y){activeYear=y;archiveI=0;archiveV=0;document.querySelectorAll(".yearTabs .btn").forEach(b=>b.classList.toggle("active",b.textContent===y));setArchive()}
+function setArchive(){const a=CONFIG.archives[activeYear];safeImg($("archivePhoto"),a.photos[archiveI]);$("archiveVideo").src=a.videos[archiveV]||""}
+function changeArchive(d){const a=CONFIG.archives[activeYear];archiveI=(archiveI+d+a.photos.length)%a.photos.length;setArchive()}
+function changeArchiveVideo(d){const a=CONFIG.archives[activeYear];if(!a.videos.length)return;archiveV=(archiveV+d+a.videos.length)%a.videos.length;setArchive()}
+setArchive();
+
+$("menuBtn").addEventListener("click",()=>$("menu").classList.toggle("open"));
+document.querySelectorAll(".menu a").forEach(a=>a.addEventListener("click",()=>$("menu").classList.remove("open")));
+$("copyBtn").addEventListener("click",async()=>{try{await navigator.clipboard.writeText(CONFIG.payment.upi);$("copyBtn").textContent="Copied ✓";setTimeout(()=>$("copyBtn").textContent="Copy UPI ID",1500)}catch(e){alert("UPI ID: "+CONFIG.payment.upi)}});
+
+function openLightbox(id){$("lightboxImg").src=$(id).src;$("lightbox").classList.add("open")}
+function closeLightbox(){$("lightbox").classList.remove("open")}
+$("lightbox").addEventListener("click",e=>{if(e.target===$("lightbox"))closeLightbox()});
+</script>
+</body>
+</html>
