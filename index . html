@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Boddurai Bazaar Youth | Ganesh Chavithi</title>
+
+  <meta name="description"
+        content="Boddurai Bazaar Youth - Ganesh Chavithi celebrations and memories from 2014 to 2026.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0b0610;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(10, 5, 15, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 180, 50, 0.25);
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: auto;
+      padding: 16px 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      color: #ffbd32;
+      font-size: 21px;
+      font-weight: 800;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffc247;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      padding: 120px 20px 70px;
+      overflow: hidden;
+
+      background:
+        radial-gradient(circle at center, rgba(255, 135, 0, 0.22), transparent 40%),
+        linear-gradient(135deg, #100516, #2b0d05, #100516);
+    }
+
+    .hero::before {
+      content: "ॐ";
+      position: absolute;
+      font-size: 380px;
+      color: rgba(255, 184, 55, 0.035);
+      font-family: serif;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 850px;
+    }
+
+    .om {
+      font-size: 60px;
+      color: #ffc247;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 8vw, 82px);
+      line-height: 1;
+      font-weight: 900;
+      background: linear-gradient(90deg, #ffd76a, #ff9d20, #ffd76a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
+
+    .hero h2 {
+      font-size: clamp(22px, 4vw, 35px);
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      color: #ddd;
+      font-size: 17px;
+      line-height: 1.7;
+      max-width: 650px;
+      margin: auto;
+    }
+
+    .hero-buttons {
+      margin-top: 32px;
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ffca45, #ff8c00);
+      color: #180900;
+    }
+
+    .btn-secondary {
+      border: 1px solid #ffbd32;
+      color: #ffca45;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(255, 160, 30, 0.2);
+    }
+
+    /* =========================
+       SECTION
+    ========================= */
+
+    section {
+      padding: 90px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title .small {
+      color: #ffbd32;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 10px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(32px, 5vw, 50px);
+      margin-bottom: 12px;
+    }
+
+    .section-title p {
+      color: #aaa;
+      max-width: 650px;
+      margin: auto;
+      line-height: 1.7;
+    }
+
+    /* =========================
+       YEAR GALLERY
+    ========================= */
+
+    #history {
+      background: #100814;
+    }
+
+    .year-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .year-card {
+      background: linear-gradient(145deg, #1b1020, #120a16);
+      border: 1px solid rgba(255, 187, 50, 0.18);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: 0.35s;
+      cursor: pointer;
+    }
+
+    .year-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255, 187, 50, 0.6);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+    }
+
+    .year-image {
+      width: 100%;
+      height: 330px;
+      object-fit: cover;
+      display: block;
+      background: #211321;
+    }
+
+    .year-info {
+      padding: 18px 20px 22px;
+      text-align: center;
+    }
+
+    .year-info h3 {
+      color: #ffc247;
+      font-size: 28px;
+      margin-bottom: 6px;
+    }
+
+    .year-info p {
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    /* =========================
+       CELEBRATIONS
+    ========================= */
+
+    #celebrations {
+      background:
+        radial-gradient(circle at top right, rgba(255, 136, 0, 0.12), transparent 35%),
+        #0b0610;
+    }
+
+    .celebration-box {
+      border: 1px dashed rgba(255, 190, 60, 0.35);
+      border-radius: 25px;
+      padding: 45px 25px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    .celebration-box .icon {
+      font-size: 50px;
+      margin-bottom: 15px;
+    }
+
+    .celebration-box h3 {
+      font-size: 28px;
+      color: #ffc247;
+      margin-bottom: 12px;
+    }
+
+    .celebration-box p {
+      color: #aaa;
+      max-width: 650px;
+      margin: auto;
+      line-height: 1.7;
+    }
+
+    /*
+      ADD YOUR CELEBRATION PHOTOS HERE LATER.
+
+      Example:
+
+      <img src="celebrations/photo1.jpg">
+
+    */
+
+    .celebration-grid {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .celebration-grid img,
+    .celebration-grid video {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 18px;
+      display: block;
+      background: #181018;
+    }
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    #about {
+      background: #100814;
+    }
+
+    .about-box {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .about-box h2 {
+      font-size: 40px;
+      color: #ffc247;
+      margin-bottom: 20px;
+    }
+
+    .about-box p {
+      color: #bbb;
+      line-height: 1.9;
+      font-size: 16px;
+    }
+
+    .quote {
+      margin-top: 30px;
+      font-size: 22px;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      text-align: center;
+      padding: 35px 20px;
+      background: #08040b;
+      border-top: 1px solid rgba(255, 190, 60, 0.15);
+    }
+
+    footer h3 {
+      color: #ffc247;
+      margin-bottom: 8px;
+    }
+
+    footer p {
+      color: #777;
+      font-size: 13px;
+    }
+
+    /* =========================
+       LIGHTBOX
+    ========================= */
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.92);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 20px;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 95%;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 40px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 700px) {
+
+      .navbar {
+        padding: 14px 16px;
+      }
+
+      .logo {
+        font-size: 16px;
+      }
+
+      nav {
+        gap: 12px;
+      }
+
+      nav a {
+        font-size: 12px;
+      }
+
+      .hero {
+        min-height: 90vh;
+      }
+
+      .om {
+        font-size: 45px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      section {
+        padding: 65px 15px;
+      }
+
+      .year-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .year-image {
+        height: 390px;
+      }
+
+      .celebration-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       NAVIGATION
+  ========================= -->
+
+  <header>
+    <div class="navbar">
+
+      <a href="#home" class="logo">
+        🕉️ Boddurai Bazaar Youth
+      </a>
+
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#history">History</a>
+        <a href="#celebrations">Celebrations</a>
+        <a href="#about">About</a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+
+      <div class="om">ॐ</div>
+
+      <h1>Ganesh Chavithi</h1>
+
+      <h2>Boddurai Bazaar Youth</h2>
+
+      <p>
+        A journey of devotion, friendship, tradition and celebration.
+        Explore our Ganesh Chavithi memories through the years.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#history" class="btn btn-primary">
+          Explore Our Journey
+        </a>
+
+        <a href="#celebrations" class="btn btn-secondary">
+          Celebrations
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       HISTORY
+  ========================= -->
+
+  <section id="history">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <div class="small">
+          Our Journey
+        </div>
+
+        <h2>Ganesh Idols Through The Years</h2>
+
+        <p>
+          From 2014 to 2026 — memories, devotion and celebrations
+          of Boddurai Bazaar Youth.
+        </p>
+
+      </div>
+
+
+      <div class="year-grid">
+
+        <!-- 2026 -->
+        <div class="year-card">
+          <img
+            class="year-image"
+            src="2026.png"
+            alt="Ganesh Idol 2026"
+            onclick="openImage(this.src)"
+          >
+
+          <div class="year-info">
+            <h3>2026</h3>
+            <p>Ganesh Chavithi</p>
+          </div>
+        </div>
+
+
+        <!-- 2025 -->
+        <div class="year-card">
+          <img
+            class="year-image"
+            src="2025.jpeg"
+            alt="Ganesh Idol 2025"
+            onclick="openImage(this.src)"
+          >
+
+          <div class="year-info">
+            <h3>2025</h3>
+            <p>Ganesh Chavithi</p>
+          </div>
+        </div>
+
+
+        <!-- 2024 -->
+        <div class="year-card">
+          <img
+            class="year-image"
+            src="2024.jpeg"
+            alt="Ganesh Idol 2024"
+            onclick="openImage(this.src)"
+          >
+
+          <div class="year-info">
+            <h3>2024</h3>
+            <p>Ganesh Chavithi</p>
+          </div>
+        </div>
+
+
+        <!-- 2023 -->
+        <div class="year-card">
+          <img
+            class="year-image"
+            src="2023.jpeg"
+            alt="Ganesh Idol 2023"
+            onclick="openImage(this.src)"
+          >
+
+          <div class="year-info">
+            <h3>2023</h3>
+            <p>Ganesh Chavithi</p>
+          </div>
+        </div>
+
+
+        <!-- 2022 -->
+        <div class="year-card">
+          <img
+            class="year-image"
+            src="2022.jpeg"
+            alt="Ganesh Idol 2022"
+            onclick="openImage(this.src)"
+          >
+
+          <div class="year-info">
+            <h3>2022</h3>
+            <p>Ganesh Chavithi</p>
+          </div>
+        </div>
+
+
+        <!-- 2021 -->
+        <div class="year-card">
+          <img
+            class="year-image"
+            src="2021.jpeg"
+            alt="Ganesh Idol 2021"
+            onclick="openImage(this.src)"
+          >
+
+          <div class="year-info">
+            <h3>2021</h3>
+            <p>Ganesh Chavithi</p>
+          </div>
+        </div>
+
+
+        <!-- 2020 -->
+        <div class="year-card">
+          <img
+            class="year-image"
+            src="2020.jpeg"
+            alt="Ganesh Idol 2020"
+            onclick="openImage(this.src)"
+          >
+
+          <div class="year-info">
+            <h3>2020</h3>
+            <p>Ganesh Chavithi</p>
+          </div>
+        </div>
+
+
+        <!-- 2019 -->
+        <div class="year-card">
+          <img
+            class="year-image"
+            src="2019.jpeg"
+            alt="Ganesh Idol 2019"
+            onclick="openImage(this.src)"
+          >
+
+          <div class="year-info">
+            <h3>2019</h3>
+            <p>Ganesh Chavithi</p>
+          </div>
+        </div>
+
+
+        <!-- 2018 -->
+        <div class="year-card">
+          <img
+            class="year-image"
+            src="2018.jpeg"
+            alt="Ganesh Idol 2018"
+            onclick="openImage(this.src)"
+          >
+
+          <div class="year-info">
+            <h3>2018</h3>
+            <p>Ganesh Chavithi</p>
+          </div>
+        </div>
+
+
+        <!-- 2017 -->
+        <div class="year-card">
+          <img
+            class="year-image"
+            src="2017.jpeg"
+            alt="Ganesh Idol 2017"
+            onclick="openImage(this.src)"
+          >
+
+          <div class="year-info">
+            <h3>2017</h3>
+            <p>Ganesh Chavithi</p>
+          </div>
+        </div>
+
+
+        <!-- 2016 -->
+        <div class="year-card">
+          <img
+            class="year-image"
+            src="2016.jpeg"
+            alt="Ganesh Idol 2016"
+            onclick="openImage(this.src)"
+          >
+
+          <div class="year-info">
+            <h3>2016</h3>
+            <p>Ganesh Chavithi</p>
+          </div>
+        </div>
+
+
+        <!-- 2015 -->
+        <div class="year-card">
+          <img
+            class="year-image"
+            src="2015.jpeg"
+            alt="Ganesh Idol 2015"
+            onclick="openImage(this.src)"
+          >
+
+          <div class="year-info">
+            <h3>2015</h3>
+            <p>Ganesh Chavithi</p>
+          </div>
+        </div>
+
+
+        <!-- 2014 -->
+        <div class="year-card">
+          <img
+            class="year-image"
+            src="2014.jpeg"
+            alt="Ganesh Idol 2014"
+            onclick="openImage(this.src)"
+          >
+
+          <div class="year-info">
+            <h3>2014</h3>
+            <p>Ganesh Chavithi</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       CELEBRATIONS
+  ========================= -->
+
+  <section id="celebrations">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <div class="small">
+          Memories
+        </div>
+
+        <h2>Our Celebrations</h2>
+
+        <p>
+          Moments of happiness, unity, dance and devotion
+          shared by Boddurai Bazaar Youth.
+        </p>
+
+      </div>
+
+
+      <div class="celebration-box">
+
+        <div class="icon">🎉</div>
+
+        <h3>More Memories Coming Soon</h3>
+
+        <p>
+          This space is ready for our celebration photos and videos.
+          You can add your own pictures and videos here anytime.
+        </p>
+
+      </div>
+
+
+      <!--
+        ==================================================
+        ADD CELEBRATION PHOTOS HERE
+        ==================================================
+
+        Example:
+
+        <div class="celebration-grid">
+
+          <img src="celebration1.jpeg" alt="Celebration">
+
+          <img src="celebration2.jpeg" alt="Celebration">
+
+        </div>
+
+        ==================================================
+      -->
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       ABOUT
+  ========================= -->
+
+  <section id="about">
+
+    <div class="container">
+
+      <div class="about-box">
+
+        <h2>Boddurai Bazaar Youth</h2>
+
+        <p>
+          Ganesh Chavithi is more than a festival.
+          It is a celebration of faith, friendship, unity
+          and unforgettable memories.
+
+          Through every year, our Ganesh celebrations have
+          brought people together and created memories
+          that remain with us.
+        </p>
+
+        <div class="quote">
+          🙏 Ganapathi Bappa Morya 🙏
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <h3>Boddurai Bazaar Youth</h3>
+
+    <p>
+      Ganesh Chavithi Memories • 2014 – 2026
+    </p>
+
+    <p style="margin-top:10px;">
+      © 2026 Boddurai Bazaar Youth
+    </p>
+
+  </footer>
+
+
+  <!-- =========================
+       IMAGE LIGHTBOX
+  ========================= -->
+
+  <div class="lightbox" id="lightbox" onclick="closeImage()">
+
+    <span class="close">&times;</span>
+
+    <img id="lightboxImage" src="" alt="Full size image">
+
+  </div>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
+  <script>
+
+    function openImage(src) {
+      document.getElementById("lightboxImage").src = src;
+      document.getElementById("lightbox").classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeImage() {
+      document.getElementById("lightbox").classList.remove("active");
+      document.body.style.overflow = "auto";
+    }
+
+    document.addEventListener("keydown", function(event) {
+
+      if (event.key === "Escape") {
+        closeImage();
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>
