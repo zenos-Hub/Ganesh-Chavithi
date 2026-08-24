@@ -428,6 +428,332 @@ footer strong{
     cursor:pointer;
     color:white;
 }
+/* your existing CSS */
+
+/* HOME PHOTO SLIDESHOW */
+/* ================================
+   HOME PHOTO SLIDESHOW
+================================ */
+
+.home-gallery {
+    width: 100%;
+    max-width: 1050px;
+    margin: 30px auto 60px;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.home-gallery h2 {
+    text-align: center;
+    font-size: 32px;
+    color: #ffd166;
+    margin: 0 0 10px;
+}
+
+.home-gallery-subtitle {
+    text-align: center;
+    color: #cccccc;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0 0 25px;
+}
+
+.slideshow {
+    position: relative;
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 22px;
+    background: #111111;
+    border: 1px solid rgba(255, 209, 102, 0.25);
+}
+
+.slide-track {
+    display: flex;
+    width: 100%;
+    transition: transform 0.45s ease;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 18px;
+    text-align: center;
+}
+
+.slide img {
+    width: 88%;
+    max-width: 700px;
+    height: 430px;
+    object-fit: contain;
+    border-radius: 18px;
+    display: block;
+    margin: 0 auto;
+}
+
+.slide-title {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 14px;
+}
+
+.slide-category {
+    color: #ffd166;
+    font-size: 15px;
+    margin-top: 6px;
+}
+
+.slide-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.70);
+    color: #ffffff;
+    font-size: 25px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.slide-btn:hover {
+    background: rgba(255, 209, 102, 0.85);
+    color: #111111;
+}
+
+.slide-prev {
+    left: 12px;
+}
+
+.slide-next {
+    right: 12px;
+}
+
+.slide-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.slide-dot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: #666666;
+    cursor: pointer;
+}
+
+.slide-dot.active {
+    background: #ffd166;
+    transform: scale(1.35);
+}
+
+
+/* ================================
+   PHONE VIEW
+================================ */
+
+@media (max-width: 600px) {
+
+    .home-gallery {
+        width: 100%;
+        padding: 0 10px;
+        margin: 20px auto 45px;
+    }
+
+    .home-gallery h2 {
+        font-size: 27px;
+        line-height: 1.2;
+    }
+
+    .home-gallery-subtitle {
+        font-size: 14px;
+        line-height: 1.5;
+        padding: 0 8px;
+        margin-bottom: 20px;
+    }
+
+    .slideshow {
+        width: 100%;
+        border-radius: 18px;
+    }
+
+    .slide {
+        padding: 12px 8px 15px;
+    }
+
+    .slide img {
+        width: 82%;
+        height: 300px;
+        border-radius: 14px;
+    }
+
+    .slide-title {
+        font-size: 17px;
+        margin-top: 10px;
+    }
+
+    .slide-category {
+        font-size: 13px;
+        margin-top: 4px;
+    }
+
+    .slide-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 19px;
+    }
+
+    .slide-prev {
+        left: 5px;
+    }
+
+    .slide-next {
+        right: 5px;
+    }
+
+    .slide-dots {
+        gap: 6px;
+        margin-top: 12px;
+    }
+
+    .slide-dot {
+        width: 7px;
+        height: 7px;
+    }
+}
+  /* HOME SLIDESHOW */
+
+.home-gallery {
+    width: 100%;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.home-gallery-title h2 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.home-gallery-title p {
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+.slideshow {
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.home-slide {
+    display: none;
+}
+
+.home-slide.active {
+    display: block;
+}
+
+.home-slide img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+    border-radius: 20px;
+    display: block;
+    margin: auto;
+}
+
+.slide-caption {
+    padding: 10px;
+    text-align: center;
+}
+
+.slide-caption h3 {
+    margin: 5px 0;
+}
+
+.slide-caption p {
+    margin: 0;
+}
+
+.slide-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.slide-controls button {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.slide-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.slide-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+/* PHONE VIEW */
+
+@media (max-width: 600px) {
+
+    .home-gallery {
+        padding: 0 12px;
+        margin: 25px auto 40px;
+    }
+
+    .home-gallery-title h2 {
+        font-size: 25px;
+    }
+
+    .home-gallery-title p {
+        font-size: 14px;
+    }
+
+    .slideshow {
+        max-width: 360px;
+        border-radius: 16px;
+    }
+
+    .home-slide img {
+        max-height: 360px;
+        border-radius: 16px;
+    }
+
+    .slide-caption h3 {
+        font-size: 18px;
+    }
+
+    .slide-caption p {
+        font-size: 14px;
+    }
+}
 </style>
 </head>
 
@@ -495,7 +821,80 @@ footer strong{
     </div>
 
 </header>
+    
+<!-- HOME SLIDESHOW -->
+<section class="home-gallery">
 
+    <div class="home-gallery-title">
+        <h2>Our Ganesh Chavithi Memories</h2>
+        <p>Admins, Ganesh Idols & Celebrations</p>
+    </div>
+
+    <div class="slideshow">
+
+        <!-- Admin 1 -->
+        <div class="home-slide active">
+            <img src="admin1.png" alt="Dathu - President">
+            <div class="slide-caption">
+                <h3>Dathu</h3>
+                <p>President</p>
+            </div>
+        </div>
+
+        <!-- Admin 2 -->
+        <div class="home-slide">
+            <img src="admin2.png" alt="Nagendra Babu - Vice President">
+            <div class="slide-caption">
+                <h3>Nagendra Babu</h3>
+                <p>Vice President</p>
+            </div>
+        </div>
+
+        <!-- Celebration 1 -->
+        <div class="home-slide">
+            <img src="celebration1.jpg" alt="Ganesh Chavithi Celebration">
+            <div class="slide-caption">
+                <h3>Ganesh Chavithi</h3>
+                <p>Celebration Memories</p>
+            </div>
+        </div>
+
+        <!-- Celebration 2 -->
+        <div class="home-slide">
+            <img src="celebration2.jpg" alt="Ganesh Chavithi Celebration">
+            <div class="slide-caption">
+                <h3>Ganesh Chavithi</h3>
+                <p>Celebration Memories</p>
+            </div>
+        </div>
+
+        <!-- Celebration 3 -->
+        <div class="home-slide">
+            <img src="celebration3.jpg" alt="Ganesh Chavithi Celebration">
+            <div class="slide-caption">
+                <h3>Ganesh Chavithi</h3>
+                <p>Celebration Memories</p>
+            </div>
+        </div>
+
+        <!-- Celebration 4 -->
+        <div class="home-slide">
+            <img src="celebration4.jpg" alt="Ganesh Chavithi Celebration">
+            <div class="slide-caption">
+                <h3>Ganesh Chavithi</h3>
+                <p>Celebration Memories</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="slide-controls">
+        <button onclick="previousSlide()">❮</button>
+        <div class="slide-dots"></div>
+        <button onclick="nextSlide()">❯</button>
+    </div>
+
+</section>
 
 <!-- IDOLS -->
 
@@ -943,6 +1342,59 @@ document.querySelectorAll(".nav-links a").forEach(function(link){
 });
 
 </script>
+<script>
+let currentSlide = 0;
+const slides = document.querySelectorAll(".home-slide");
+const dotsContainer = document.querySelector(".slide-dots");
 
+function showSlide(index) {
+    if (slides.length === 0) return;
+
+    if (index >= slides.length) {
+        currentSlide = 0;
+    } else if (index < 0) {
+        currentSlide = slides.length - 1;
+    } else {
+        currentSlide = index;
+    }
+
+    slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === currentSlide);
+    });
+
+    if (dotsContainer) {
+        dotsContainer.innerHTML = "";
+
+        slides.forEach((slide, i) => {
+            const dot = document.createElement("span");
+            dot.className = "slide-dot";
+            dot.style.background =
+                i === currentSlide ? "#ffd166" : "#777";
+            dot.style.cursor = "pointer";
+
+            dot.onclick = function () {
+                showSlide(i);
+            };
+
+            dotsContainer.appendChild(dot);
+        });
+    }
+}
+
+function nextSlide() {
+    showSlide(currentSlide + 1);
+}
+
+function previousSlide() {
+    showSlide(currentSlide - 1);
+}
+
+showSlide(0);
+
+/* Automatically change every 4 seconds */
+setInterval(function () {
+    nextSlide();
+}, 4000);
+</script>
 </body>
 </html>
