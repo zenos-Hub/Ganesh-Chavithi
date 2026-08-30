@@ -890,6 +890,21 @@ footer strong{
         font-size: 28px;
     }
 }
+    @media (max-width: 768px) {
+
+    #idols {
+        touch-action: pan-y;
+    }
+
+    #idols .slide-arrow {
+        display: none !important;
+    }
+
+    #idols .home-slide {
+        cursor: grab;
+    }
+
+}
 </style>
 </head>
 
@@ -1599,6 +1614,35 @@ function handleIdolSwipe() {
         previousIdol();
     }
 }         
+</script>
+      <script>
+const idolSection = document.getElementById("idols");
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+idolSection.addEventListener("touchstart", function(e) {
+    touchStartX = e.changedTouches[0].screenX;
+}, { passive: true });
+
+idolSection.addEventListener("touchend", function(e) {
+    touchEndX = e.changedTouches[0].screenX;
+    handleIdolSwipe();
+}, { passive: true });
+
+function handleIdolSwipe() {
+    const swipeDistance = touchEndX - touchStartX;
+
+    // Swipe left → next idol
+    if (swipeDistance < -50) {
+        nextIdol();
+    }
+
+    // Swipe right → previous idol
+    if (swipeDistance > 50) {
+        previousIdol();
+    }
+}
 </script>
 </body>
 </html>
