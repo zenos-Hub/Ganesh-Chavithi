@@ -793,7 +793,47 @@ footer {
         height: 55vh;
     }
 }
+/* Instagram Follow Button */
+.follow-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 
+    padding: 11px 20px;
+    min-width: 105px;
+
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+
+    border-radius: 30px;
+
+    background: linear-gradient(
+        135deg,
+        #feda75,
+        #fa7e1e,
+        #d62976,
+        #962fbf,
+        #4f5bd5
+    );
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.follow-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.instagram-icon {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1;
+}
 </style>
 </head>
 
@@ -856,6 +896,11 @@ Donation
 </li>
 
 </ul>
+
+<a href="YOUR_INSTAGRAM_LINK" class="follow-btn" target="_blank">
+    <span class="instagram-icon">◎</span>
+    Follow
+</a>
 
 </nav>
 
