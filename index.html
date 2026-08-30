@@ -13,9 +13,9 @@
 ========================= */
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -30,28 +30,31 @@ body {
 }
 
 section {
-    padding: 80px 20px;
     min-height: 100vh;
+    padding: 90px 20px;
 }
 
 .container {
+    width: 100%;
     max-width: 1100px;
     margin: auto;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     line-height: 1.2;
 }
 
 .section-title {
     text-align: center;
-    font-size: 38px;
+    font-size: 40px;
     margin-bottom: 10px;
 }
 
 .section-subtitle {
     text-align: center;
-    color: #bbb;
+    color: #aaa;
     margin-bottom: 45px;
 }
 
@@ -66,15 +69,18 @@ header {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(5,5,5,0.92);
+
+    background: rgba(5,5,5,0.94);
     backdrop-filter: blur(10px);
+
     border-bottom: 1px solid #222;
 }
 
 .navbar {
     max-width: 1200px;
-    margin: auto;
     min-height: 70px;
+
+    margin: auto;
     padding: 0 20px;
 
     display: flex;
@@ -106,10 +112,49 @@ header {
 
 .menu-btn {
     display: none;
+
     background: none;
     border: none;
+
     color: white;
     font-size: 28px;
+    cursor: pointer;
+}
+
+
+/* =========================
+   INSTAGRAM BUTTON
+========================= */
+
+.instagram-btn {
+    display: inline-block;
+
+    margin-top: 10px;
+
+    padding: 13px 25px;
+
+    border-radius: 30px;
+
+    background: linear-gradient(
+        45deg,
+        #feda75,
+        #fa7e1e,
+        #d62976,
+        #962fbf,
+        #4f5bd5
+    );
+
+    color: white;
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.instagram-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
 }
 
 
@@ -119,11 +164,15 @@ header {
 
 #home {
     min-height: 100vh;
+
     display: flex;
     align-items: center;
 
     background:
-        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.8)),
+        linear-gradient(
+            rgba(0,0,0,0.55),
+            rgba(0,0,0,0.85)
+        ),
         url("2026.png") center/cover no-repeat;
 }
 
@@ -132,7 +181,7 @@ header {
 }
 
 .home-content h1 {
-    font-size: 55px;
+    font-size: 58px;
     color: #f5c542;
     margin-bottom: 15px;
 }
@@ -145,12 +194,18 @@ header {
 
 .home-btn {
     display: inline-block;
-    padding: 12px 25px;
+
+    padding: 13px 27px;
+
     border-radius: 30px;
+
     background: #f5c542;
     color: #111;
+
     text-decoration: none;
     font-weight: bold;
+
+    margin-right: 10px;
 }
 
 
@@ -160,50 +215,66 @@ header {
 
 .slideshow {
     position: relative;
+
+    width: 100%;
     max-width: 900px;
+
     margin: auto;
-    text-align: center;
+
     overflow: hidden;
+
     touch-action: pan-y;
 }
 
 .slide {
     display: none;
-    animation: fadeSlide 0.4s ease;
+
+    width: 100%;
+
+    text-align: center;
+
+    animation: fade 0.4s ease;
 }
 
 .slide.active {
     display: block;
 }
 
+@keyframes fade {
+    from {
+        opacity: 0.3;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
 .slide img {
+    display: block;
+
     width: 100%;
-    max-width: 750px;
-    height: 500px;
-    object-fit: contain;
+    height: 520px;
+
+    object-fit: cover;
+
     border-radius: 20px;
+
     cursor: pointer;
-    background: #111;
+
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 .slide h3 {
     margin-top: 18px;
+
     font-size: 25px;
 }
 
 .slide p {
     color: #aaa;
     margin-top: 5px;
-}
-
-@keyframes fadeSlide {
-    from {
-        opacity: 0.4;
-    }
-
-    to {
-        opacity: 1;
-    }
 }
 
 
@@ -213,34 +284,39 @@ header {
 
 .slide-arrow {
     position: absolute;
-    top: 45%;
-    transform: translateY(-50%);
 
-    width: 48px;
-    height: 48px;
+    top: 46%;
+
+    width: 45px;
+    height: 45px;
 
     border: none;
     border-radius: 50%;
 
-    background: rgba(255,255,255,0.15);
+    background: rgba(0,0,0,0.65);
+
     color: white;
 
     font-size: 25px;
+
     cursor: pointer;
+
     z-index: 5;
+
+    transition: 0.2s;
 }
 
 .slide-arrow:hover {
-    background: rgba(245,197,66,0.8);
-    color: black;
+    background: rgba(245,197,66,0.9);
+    color: #111;
 }
 
 .slide-arrow.prev {
-    left: 10px;
+    left: 15px;
 }
 
 .slide-arrow.next {
-    right: 10px;
+    right: 15px;
 }
 
 
@@ -250,23 +326,33 @@ header {
 
 .slide-dots {
     display: flex;
+
     justify-content: center;
+    align-items: center;
+
     gap: 8px;
+
     margin-top: 20px;
+
     flex-wrap: wrap;
 }
 
 .slide-dot {
     width: 10px;
     height: 10px;
+
     border-radius: 50%;
+
     background: #666;
+
     cursor: pointer;
+
+    transition: 0.2s;
 }
 
 .slide-dot.active {
     background: #f5c542;
-    transform: scale(1.2);
+    transform: scale(1.25);
 }
 
 
@@ -278,10 +364,6 @@ header {
     background: #0b0b0b;
 }
 
-#idolSlideshow .slide img {
-    height: 520px;
-}
-
 
 /* =========================
    CELEBRATIONS
@@ -289,10 +371,6 @@ header {
 
 #celebrations {
     background: #101010;
-}
-
-#celebrationSlideshow .slide img {
-    height: 520px;
 }
 
 
@@ -309,35 +387,51 @@ header {
    ADMINS
 ========================= */
 
+.admin-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
 .admins {
+    width: 100%;
     max-width: 850px;
+
     margin: 0 auto 80px;
 
     display: flex;
+
     justify-content: center;
+
     gap: 30px;
 }
 
 .admin-card {
     width: 350px;
+
     text-align: center;
 }
 
 .admin-card img {
     width: 100%;
     height: 380px;
+
     object-fit: cover;
+
     border-radius: 20px;
+
     cursor: pointer;
+
+    user-select: none;
 }
 
 .admin-card h3 {
     margin-top: 15px;
+
     font-size: 23px;
 }
 
 .admin-card p {
-    color: #bbb;
+    color: #aaa;
 }
 
 
@@ -345,8 +439,14 @@ header {
    MEMBERS
 ========================= */
 
-#memberSlideshow .slide img {
-    height: 520px;
+.member-heading {
+    text-align: center;
+
+    margin-bottom: 10px;
+}
+
+#memberSlideshow {
+    max-width: 900px;
 }
 
 
@@ -360,28 +460,37 @@ header {
 
 .community-grid {
     max-width: 1000px;
+
     margin: auto;
 
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
     gap: 25px;
 }
 
 .community-card {
     background: #181818;
+
     padding: 30px;
+
     border-radius: 18px;
+
     text-align: center;
+
     border: 1px solid #252525;
 }
 
 .community-card h3 {
     color: #f5c542;
+
     margin-bottom: 10px;
 }
 
 .community-card p {
-    color: #bbb;
+    color: #aaa;
 }
 
 
@@ -389,39 +498,72 @@ header {
    DONATION
 ========================= */
 
-#donation {
-    background: #080808;
+/* ================= DONATION ================= */
+
+.donation-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 20px;
+}
+
+.donation-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 20px;
+    padding: 30px;
     text-align: center;
+    backdrop-filter: blur(10px);
 }
 
-.donation-box {
-    max-width: 700px;
-    margin: auto;
-    background: #151515;
-    padding: 45px;
-    border-radius: 25px;
-    border: 1px solid #292929;
-}
-
-.donation-box h3 {
-    color: #f5c542;
-    font-size: 28px;
-    margin-bottom: 15px;
-}
-
-.donation-box p {
-    color: #bbb;
+.donation-card h3 {
     margin-bottom: 20px;
 }
 
-.donate-btn {
-    display: inline-block;
-    padding: 13px 30px;
-    background: #f5c542;
-    color: #111;
-    border-radius: 30px;
-    text-decoration: none;
+.donation-qr {
+    width: 280px;
+    max-width: 100%;
+    border-radius: 12px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+.bank-details {
+    text-align: left;
+    line-height: 1.8;
+    margin-top: 20px;
+}
+
+.upi-button {
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    cursor: pointer;
     font-weight: bold;
+    margin-top: 10px;
+}
+
+.donation-note {
+    margin-top: 25px;
+    opacity: 0.8;
+}
+
+@media (max-width: 700px) {
+    .donation-container {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+
+    .donation-card {
+        padding: 20px;
+    }
+
+    .donation-qr {
+        width: 240px;
+    }
 }
 
 
@@ -431,14 +573,18 @@ header {
 
 .lightbox {
     position: fixed;
+
     inset: 0;
-    background: rgba(0,0,0,0.95);
+
+    background: rgba(0,0,0,0.96);
 
     display: none;
+
     align-items: center;
     justify-content: center;
 
     z-index: 2000;
+
     padding: 20px;
 }
 
@@ -449,18 +595,25 @@ header {
 .lightbox img {
     max-width: 95%;
     max-height: 90vh;
+
     object-fit: contain;
+
     border-radius: 10px;
 }
 
 .lightbox-close {
     position: absolute;
-    top: 20px;
-    right: 30px;
 
-    font-size: 40px;
+    top: 15px;
+    right: 25px;
+
     color: white;
+
+    font-size: 45px;
+
     cursor: pointer;
+
+    z-index: 2001;
 }
 
 
@@ -470,8 +623,11 @@ header {
 
 footer {
     text-align: center;
+
     padding: 25px;
+
     background: #050505;
+
     color: #777;
 }
 
@@ -483,21 +639,27 @@ footer {
 @media (max-width: 768px) {
 
     section {
-        padding: 75px 15px;
+        padding: 80px 15px;
     }
+
+    /* NAVIGATION */
 
     .nav-links {
         display: none;
 
         position: absolute;
+
         top: 70px;
         left: 0;
+
         width: 100%;
 
         background: #090909;
 
         flex-direction: column;
+
         text-align: center;
+
         gap: 0;
     }
 
@@ -507,12 +669,16 @@ footer {
 
     .nav-links li {
         padding: 15px;
+
         border-bottom: 1px solid #222;
     }
 
     .menu-btn {
         display: block;
     }
+
+
+    /* HOME */
 
     .home-content h1 {
         font-size: 38px;
@@ -522,21 +688,45 @@ footer {
         font-size: 17px;
     }
 
+    .home-btn {
+        margin-bottom: 10px;
+    }
+
+
+    /* TITLES */
+
     .section-title {
         font-size: 30px;
     }
 
+
+    /* SLIDESHOW */
+
     .slide img {
-        height: 65vh;
+        height: 60vh;
+
         max-height: 500px;
+
+        border-radius: 15px;
     }
+
+    /*
+       On mobile we use
+       finger swipe instead
+       of tiny arrows.
+    */
 
     .slide-arrow {
         display: none;
     }
 
+
+    /* ADMINS */
+
     .admins {
         gap: 10px;
+
+        align-items: flex-start;
     }
 
     .admin-card {
@@ -545,6 +735,8 @@ footer {
 
     .admin-card img {
         height: 250px;
+
+        border-radius: 15px;
     }
 
     .admin-card h3 {
@@ -555,12 +747,50 @@ footer {
         font-size: 14px;
     }
 
+
+    /* COMMUNITY */
+
     .community-grid {
         grid-template-columns: 1fr;
     }
 
+
+    /* DONATION */
+
     .donation-box {
-        padding: 30px 20px;
+        padding: 25px 15px;
+    }
+
+    .donation-details {
+        grid-template-columns: 1fr;
+    }
+
+    .qr-image {
+        max-width: 280px;
+    }
+}
+
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 400px) {
+
+    .admin-card img {
+        height: 210px;
+    }
+
+    .admin-card h3 {
+        font-size: 16px;
+    }
+
+    .admin-card p {
+        font-size: 13px;
+    }
+
+    .slide img {
+        height: 55vh;
     }
 }
 
@@ -583,22 +813,54 @@ footer {
 🕉️ Boddurai Bazaar Youth
 </div>
 
-<button class="menu-btn" onclick="toggleMenu()">☰</button>
+<button
+    class="menu-btn"
+    onclick="toggleMenu()">
+    ☰
+</button>
 
-<ul class="nav-links" id="navLinks">
+<ul
+    class="nav-links"
+    id="navLinks">
 
-<li><a href="#home">Home</a></li>
-<li><a href="#idols">Idols</a></li>
-<li><a href="#celebrations">Celebrations</a></li>
-<li><a href="#youth-gang">Youth Gang</a></li>
-<li><a href="#community">Community</a></li>
-<li><a href="#donation">Donation</a></li>
+<li>
+<a href="#home">Home</a>
+</li>
+
+<li>
+<a href="#idols">Idols</a>
+</li>
+
+<li>
+<a href="#celebrations">
+Celebrations
+</a>
+</li>
+
+<li>
+<a href="#youth-gang">
+Youth Gang
+</a>
+</li>
+
+<li>
+<a href="#community">
+Community
+</a>
+</li>
+
+<li>
+<a href="#donation">
+Donation
+</a>
+</li>
 
 </ul>
 
 </nav>
 
 </header>
+
 
 
 <!-- =========================
@@ -618,13 +880,28 @@ Celebrating Ganesh Chavithi together,
 creating memories together.
 </p>
 
-<a href="#idols" class="home-btn">
-Explore Our Journey
+<a
+    href="#idols"
+    class="home-btn">
+    Explore Our Journey
+</a>
+
+<br>
+
+<a
+    href="https://www.instagram.com/boddurai_youth/"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="instagram-btn">
+
+    📸 Follow us on Instagram
+
 </a>
 
 </div>
 
 </section>
+
 
 
 <!-- =========================
@@ -644,19 +921,27 @@ Our idols through the years
 </p>
 
 
-<div class="slideshow" id="idolSlideshow">
+<div
+    class="slideshow"
+    id="idolSlideshow">
+
 
 <!-- 2026 -->
 
 <div class="slide active">
 
-<img src="2026.png"
-alt="Ganesh Idol 2026"
-onclick="openImage(this.src)">
+<img
+    src="2026.png"
+    alt="Ganesh Idol 2026"
+    onclick="openImage(this.src)">
 
-<h3>Ganesh Chavithi 2026</h3>
+<h3>
+Ganesh Chavithi 2026
+</h3>
 
-<p>Our latest celebration</p>
+<p>
+Our latest celebration
+</p>
 
 </div>
 
@@ -665,13 +950,18 @@ onclick="openImage(this.src)">
 
 <div class="slide">
 
-<img src="2025.jpeg"
-alt="Ganesh Idol 2025"
-onclick="openImage(this.src)">
+<img
+    src="2025.jpeg"
+    alt="Ganesh Idol 2025"
+    onclick="openImage(this.src)">
 
-<h3>Ganesh Chavithi 2025</h3>
+<h3>
+Ganesh Chavithi 2025
+</h3>
 
-<p>A beautiful year</p>
+<p>
+A beautiful year
+</p>
 
 </div>
 
@@ -680,13 +970,18 @@ onclick="openImage(this.src)">
 
 <div class="slide">
 
-<img src="2024.jpeg"
-alt="Ganesh Idol 2024"
-onclick="openImage(this.src)">
+<img
+    src="2024.jpeg"
+    alt="Ganesh Idol 2024"
+    onclick="openImage(this.src)">
 
-<h3>Ganesh Chavithi 2024</h3>
+<h3>
+Ganesh Chavithi 2024
+</h3>
 
-<p>Memories of celebration</p>
+<p>
+Memories of celebration
+</p>
 
 </div>
 
@@ -695,13 +990,18 @@ onclick="openImage(this.src)">
 
 <div class="slide">
 
-<img src="2023.jpeg"
-alt="Ganesh Idol 2023"
-onclick="openImage(this.src)">
+<img
+    src="2023.jpeg"
+    alt="Ganesh Idol 2023"
+    onclick="openImage(this.src)">
 
-<h3>Ganesh Chavithi 2023</h3>
+<h3>
+Ganesh Chavithi 2023
+</h3>
 
-<p>A memorable year</p>
+<p>
+A memorable year
+</p>
 
 </div>
 
@@ -710,13 +1010,18 @@ onclick="openImage(this.src)">
 
 <div class="slide">
 
-<img src="2022.jpeg"
-alt="Ganesh Idol 2022"
-onclick="openImage(this.src)">
+<img
+    src="2022.jpeg"
+    alt="Ganesh Idol 2022"
+    onclick="openImage(this.src)">
 
-<h3>Ganesh Chavithi 2022</h3>
+<h3>
+Ganesh Chavithi 2022
+</h3>
 
-<p>A year of celebration</p>
+<p>
+A year of celebration
+</p>
 
 </div>
 
@@ -725,13 +1030,18 @@ onclick="openImage(this.src)">
 
 <div class="slide">
 
-<img src="2021.jpeg"
-alt="Ganesh Idol 2021"
-onclick="openImage(this.src)">
+<img
+    src="2021.jpeg"
+    alt="Ganesh Idol 2021"
+    onclick="openImage(this.src)">
 
-<h3>Ganesh Chavithi 2021</h3>
+<h3>
+Ganesh Chavithi 2021
+</h3>
 
-<p>Memories we cherish</p>
+<p>
+Memories we cherish
+</p>
 
 </div>
 
@@ -740,13 +1050,18 @@ onclick="openImage(this.src)">
 
 <div class="slide">
 
-<img src="2020.jpeg"
-alt="Ganesh Idol 2020"
-onclick="openImage(this.src)">
+<img
+    src="2020.jpeg"
+    alt="Ganesh Idol 2020"
+    onclick="openImage(this.src)">
 
-<h3>Ganesh Chavithi 2020</h3>
+<h3>
+Ganesh Chavithi 2020
+</h3>
 
-<p>A special celebration</p>
+<p>
+A special celebration
+</p>
 
 </div>
 
@@ -755,13 +1070,18 @@ onclick="openImage(this.src)">
 
 <div class="slide">
 
-<img src="2019.jpeg"
-alt="Ganesh Idol 2019"
-onclick="openImage(this.src)">
+<img
+    src="2019.jpeg"
+    alt="Ganesh Idol 2019"
+    onclick="openImage(this.src)">
 
-<h3>Ganesh Chavithi 2019</h3>
+<h3>
+Ganesh Chavithi 2019
+</h3>
 
-<p>Beautiful memories</p>
+<p>
+Beautiful memories
+</p>
 
 </div>
 
@@ -770,13 +1090,18 @@ onclick="openImage(this.src)">
 
 <div class="slide">
 
-<img src="2018.jpeg"
-alt="Ganesh Idol 2018"
-onclick="openImage(this.src)">
+<img
+    src="2018.jpeg"
+    alt="Ganesh Idol 2018"
+    onclick="openImage(this.src)">
 
-<h3>Ganesh Chavithi 2018</h3>
+<h3>
+Ganesh Chavithi 2018
+</h3>
 
-<p>Moments of devotion</p>
+<p>
+Moments of devotion
+</p>
 
 </div>
 
@@ -785,13 +1110,18 @@ onclick="openImage(this.src)">
 
 <div class="slide">
 
-<img src="2017.jpeg"
-alt="Ganesh Idol 2017"
-onclick="openImage(this.src)">
+<img
+    src="2017.jpeg"
+    alt="Ganesh Idol 2017"
+    onclick="openImage(this.src)">
 
-<h3>Ganesh Chavithi 2017</h3>
+<h3>
+Ganesh Chavithi 2017
+</h3>
 
-<p>Memories of celebration</p>
+<p>
+Memories of celebration
+</p>
 
 </div>
 
@@ -800,13 +1130,18 @@ onclick="openImage(this.src)">
 
 <div class="slide">
 
-<img src="2016.jpeg"
-alt="Ganesh Idol 2016"
-onclick="openImage(this.src)">
+<img
+    src="2016.jpeg"
+    alt="Ganesh Idol 2016"
+    onclick="openImage(this.src)">
 
-<h3>Ganesh Chavithi 2016</h3>
+<h3>
+Ganesh Chavithi 2016
+</h3>
 
-<p>A memorable year</p>
+<p>
+A memorable year
+</p>
 
 </div>
 
@@ -815,13 +1150,18 @@ onclick="openImage(this.src)">
 
 <div class="slide">
 
-<img src="2015.jpeg"
-alt="Ganesh Idol 2015"
-onclick="openImage(this.src)">
+<img
+    src="2015.jpeg"
+    alt="Ganesh Idol 2015"
+    onclick="openImage(this.src)">
 
-<h3>Ganesh Chavithi 2015</h3>
+<h3>
+Ganesh Chavithi 2015
+</h3>
 
-<p>Beautiful memories</p>
+<p>
+Beautiful memories
+</p>
 
 </div>
 
@@ -830,35 +1170,46 @@ onclick="openImage(this.src)">
 
 <div class="slide">
 
-<img src="2014.jpeg"
-alt="Ganesh Idol 2014"
-onclick="openImage(this.src)">
+<img
+    src="2014.jpeg"
+    alt="Ganesh Idol 2014"
+    onclick="openImage(this.src)">
 
-<h3>Ganesh Chavithi 2014</h3>
+<h3>
+Ganesh Chavithi 2014
+</h3>
 
-<p>Where the memories began</p>
+<p>
+Where the memories began
+</p>
 
 </div>
 
 
-<button class="slide-arrow prev"
-onclick="previousSlide('idol')">
-❮
+<button
+    class="slide-arrow prev"
+    onclick="previousSlide('idol')">
+    ❮
 </button>
 
-<button class="slide-arrow next"
-onclick="nextSlide('idol')">
-❯
+<button
+    class="slide-arrow next"
+    onclick="nextSlide('idol')">
+    ❯
 </button>
 
 
-<div class="slide-dots" id="idolDots"></div>
+<div
+    class="slide-dots"
+    id="idolDots">
+</div>
 
 </div>
 
 </div>
 
 </section>
+
 
 
 <!-- =========================
@@ -878,80 +1229,107 @@ Moments from our Ganesh Chavithi celebrations
 </p>
 
 
-<div class="slideshow" id="celebrationSlideshow">
+<div
+    class="slideshow"
+    id="celebrationSlideshow">
 
 
 <div class="slide active">
 
-<img src="celebration1.jpg"
-alt="Celebration 1"
-onclick="openImage(this.src)">
+<img
+    src="celebration1.jpg"
+    alt="Celebration 1"
+    onclick="openImage(this.src)">
 
-<h3>Ganesh Chavithi 2026</h3>
+<h3>
+Ganesh Chavithi 2026
+</h3>
 
-<p>Our latest celebration</p>
-
-</div>
-
-
-<div class="slide">
-
-<img src="celebration2.jpg"
-alt="Celebration 2"
-onclick="openImage(this.src)">
-
-<h3>Ganesh Chavithi 2025</h3>
-
-<p>A beautiful celebration</p>
+<p>
+Our latest celebration
+</p>
 
 </div>
 
 
 <div class="slide">
 
-<img src="celebration3.jpg"
-alt="Celebration 3"
-onclick="openImage(this.src)">
+<img
+    src="celebration2.jpg"
+    alt="Celebration 2"
+    onclick="openImage(this.src)">
 
-<h3>Ganesh Chavithi 2024</h3>
+<h3>
+Ganesh Chavithi 2025
+</h3>
 
-<p>Memories to cherish</p>
+<p>
+A beautiful celebration
+</p>
 
 </div>
 
 
 <div class="slide">
 
-<img src="celebration4.jpg"
-alt="Celebration 4"
-onclick="openImage(this.src)">
+<img
+    src="celebration3.jpg"
+    alt="Celebration 3"
+    onclick="openImage(this.src)">
 
-<h3>Ganesh Chavithi 2023</h3>
+<h3>
+Ganesh Chavithi 2024
+</h3>
 
-<p>Moments together</p>
+<p>
+Memories to cherish
+</p>
 
 </div>
 
 
-<button class="slide-arrow prev"
-onclick="previousSlide('celebration')">
-❮
+<div class="slide">
+
+<img
+    src="celebration4.jpg"
+    alt="Celebration 4"
+    onclick="openImage(this.src)">
+
+<h3>
+Ganesh Chavithi 2023
+</h3>
+
+<p>
+Moments together
+</p>
+
+</div>
+
+
+<button
+    class="slide-arrow prev"
+    onclick="previousSlide('celebration')">
+    ❮
 </button>
 
-<button class="slide-arrow next"
-onclick="nextSlide('celebration')">
-❯
+<button
+    class="slide-arrow next"
+    onclick="nextSlide('celebration')">
+    ❯
 </button>
 
 
-<div class="slide-dots"
-id="celebrationDots"></div>
+<div
+    class="slide-dots"
+    id="celebrationDots">
+</div>
 
 </div>
 
 </div>
 
 </section>
+
 
 
 <!-- =========================
@@ -973,44 +1351,57 @@ The people behind our celebrations
 
 <!-- ADMINS -->
 
-<h2 style="text-align:center; margin-bottom:30px;">
+<h2 class="admin-title">
 Admins
 </h2>
+
 
 <div class="admins">
 
 
 <div class="admin-card">
 
-<img src="admin1.png"
-alt="Dathu"
-onclick="openImage(this.src)">
+<img
+    src="admin1.png"
+    alt="Dathu"
+    onclick="openImage(this.src)">
 
-<h3>Dathu</h3>
+<h3>
+Dathu
+</h3>
 
-<p>President</p>
+<p>
+President
+</p>
 
 </div>
 
 
 <div class="admin-card">
 
-<img src="admin2.png"
-alt="Nagendra Babu"
-onclick="openImage(this.src)">
+<img
+    src="admin2.png"
+    alt="Nagendra Babu"
+    onclick="openImage(this.src)">
 
-<h3>Nagendra Babu</h3>
+<h3>
+Nagendra Babu
+</h3>
 
-<p>Vice President</p>
+<p>
+Vice President
+</p>
 
 </div>
 
+
 </div>
+
 
 
 <!-- MEMBERS -->
 
-<h2 style="text-align:center; margin-bottom:10px;">
+<h2 class="member-heading">
 Members
 </h2>
 
@@ -1019,105 +1410,133 @@ Our Youth Gang
 </p>
 
 
-<div class="slideshow" id="memberSlideshow">
+<div
+    class="slideshow"
+    id="memberSlideshow">
 
 
 <div class="slide active">
 
-<img src="member1.png"
-alt="A. Sai"
-onclick="openImage(this.src)">
+<img
+    src="member1.png"
+    alt="A. Sai"
+    onclick="openImage(this.src)">
 
-<h3>A. Sai</h3>
-
-</div>
-
-
-<div class="slide">
-
-<img src="member2.png"
-alt="Shekar"
-onclick="openImage(this.src)">
-
-<h3>Shekar</h3>
+<h3>
+A. Sai
+</h3>
 
 </div>
 
 
 <div class="slide">
 
-<img src="member3.png"
-alt="Murali"
-onclick="openImage(this.src)">
+<img
+    src="member2.png"
+    alt="Shekar"
+    onclick="openImage(this.src)">
 
-<h3>Murali</h3>
-
-</div>
-
-
-<div class="slide">
-
-<img src="member4.png"
-alt="P. Sai"
-onclick="openImage(this.src)">
-
-<h3>P. Sai</h3>
+<h3>
+Shekar
+</h3>
 
 </div>
 
 
 <div class="slide">
 
-<img src="member5.png"
-alt="Phani"
-onclick="openImage(this.src)">
+<img
+    src="member3.png"
+    alt="Murali"
+    onclick="openImage(this.src)">
 
-<h3>Phani</h3>
-
-</div>
-
-
-<div class="slide">
-
-<img src="member6.png"
-alt="Pavan"
-onclick="openImage(this.src)">
-
-<h3>Pavan</h3>
+<h3>
+Murali
+</h3>
 
 </div>
 
 
 <div class="slide">
 
-<img src="member7.png"
-alt="Amar"
-onclick="openImage(this.src)">
+<img
+    src="member4.png"
+    alt="P. Sai"
+    onclick="openImage(this.src)">
 
-<h3>Amar</h3>
+<h3>
+P. Sai
+</h3>
 
 </div>
 
 
-<button class="slide-arrow prev"
-onclick="previousSlide('member')">
-❮
+<div class="slide">
+
+<img
+    src="member5.png"
+    alt="Phani"
+    onclick="openImage(this.src)">
+
+<h3>
+Phani
+</h3>
+
+</div>
+
+
+<div class="slide">
+
+<img
+    src="member6.png"
+    alt="Pavan"
+    onclick="openImage(this.src)">
+
+<h3>
+Pavan
+</h3>
+
+</div>
+
+
+<div class="slide">
+
+<img
+    src="member7.png"
+    alt="Amar"
+    onclick="openImage(this.src)">
+
+<h3>
+Amar
+</h3>
+
+</div>
+
+
+<button
+    class="slide-arrow prev"
+    onclick="previousSlide('member')">
+    ❮
 </button>
 
-<button class="slide-arrow next"
-onclick="nextSlide('member')">
-❯
+<button
+    class="slide-arrow next"
+    onclick="nextSlide('member')">
+    ❯
 </button>
 
 
-<div class="slide-dots"
-id="memberDots"></div>
+<div
+    class="slide-dots"
+    id="memberDots">
+</div>
 
 </div>
 
 </div>
 
 </section>
+
 
 
 <!-- =========================
@@ -1142,7 +1561,9 @@ Together we make a difference
 
 <div class="community-card">
 
-<h3>Unity</h3>
+<h3>
+Unity
+</h3>
 
 <p>
 We come together as a community
@@ -1154,7 +1575,9 @@ to celebrate and support each other.
 
 <div class="community-card">
 
-<h3>Service</h3>
+<h3>
+Service
+</h3>
 
 <p>
 Our youth group believes in helping
@@ -1166,7 +1589,9 @@ our neighbourhood and community.
 
 <div class="community-card">
 
-<h3>Memories</h3>
+<h3>
+Memories
+</h3>
 
 <p>
 Every celebration creates memories
@@ -1183,63 +1608,83 @@ that stay with us for years.
 </section>
 
 
+
 <!-- =========================
      DONATION
 ========================= -->
 
-<section id="donation">
+<!-- ================= DONATION ================= -->
+<section id="donation" class="section">
+    <h2>❤️ Support Our Celebration</h2>
+    <p class="section-subtitle">
+        Your support helps us continue our Ganesh Chavithi celebrations.
+    </p>
 
-<div class="container">
+    <div class="donation-container">
 
-<h2 class="section-title">
-Donation
-</h2>
+        <!-- QR CODE -->
+        <div class="donation-card">
+            <h3>Scan & Donate</h3>
 
-<p class="section-subtitle">
-Support our celebrations and community activities
-</p>
+            <img src="donation-qr.png"
+                 alt="Donation QR Code"
+                 class="donation-qr"
+                 onclick="openImage(this.src)">
 
+            <p><strong>UPI Name:</strong> ATCHYUTHA PAVAN</p>
+            <p>
+                <strong>UPI ID:</strong>
+                <span>63034371682ybl</span>
+            </p>
 
-<div class="donation-box">
+            <button class="upi-button"
+                    onclick="navigator.clipboard.writeText('63034371682ybl')">
+                📋 Copy UPI ID
+            </button>
+        </div>
 
-<h3>
-Support Boddurai Bazaar Youth
-</h3>
+        <!-- BANK DETAILS -->
+        <div class="donation-card">
+            <h3>🏦 Bank Details</h3>
 
-<p>
-Your contribution helps us organize
-Ganesh Chavithi celebrations and
-community activities.
-</p>
+            <div class="bank-details">
+                <p><strong>Account Name:</strong> ATCHYUTHA PAVAN</p>
+                <p><strong>Account Number:</strong> YOUR ACCOUNT NUMBER</p>
+                <p><strong>Bank Name:</strong> YOUR BANK NAME</p>
+                <p><strong>IFSC:</strong> YOUR IFSC CODE</p>
+                <p><strong>Branch:</strong> YOUR BRANCH</p>
+            </div>
 
-<a href="#" class="donate-btn">
-Donate
-</a>
+            <p class="donation-note">
+                Thank you for supporting Boddurai Bazaar Youth ❤️
+            </p>
+        </div>
 
-</div>
-
-</div>
-
+    </div>
 </section>
 
 
 <!-- =========================
-     LIGHTBOX
+     IMAGE LIGHTBOX
 ========================= -->
 
-<div class="lightbox"
-id="lightbox"
-onclick="closeImage()">
+<div
+    class="lightbox"
+    id="lightbox"
+    onclick="closeImage()">
 
-<span class="lightbox-close">
-×
+<span
+    class="lightbox-close">
+    ×
 </span>
 
-<img id="lightboxImage"
-src=""
-alt="Full size image">
+<img
+    id="lightboxImage"
+    src=""
+    alt="Full size image">
 
 </div>
+
 
 
 <!-- =========================
@@ -1248,12 +1693,32 @@ alt="Full size image">
 
 <footer>
 
+<p>
 © 2026 Boddurai Bazaar Youth
+</p>
+
+<br>
+
+<a
+    href="https://www.instagram.com/boddurai_youth/"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="instagram-btn">
+
+    📸 Follow us on Instagram
+
+</a>
 
 </footer>
 
 
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
 <script>
+
 
 /* =========================
    MOBILE MENU
@@ -1268,9 +1733,30 @@ function toggleMenu() {
 }
 
 
+/* Close mobile menu
+   after clicking a link */
+
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(function(link) {
+
+        link.addEventListener(
+            "click",
+            function() {
+
+                document
+                    .getElementById("navLinks")
+                    .classList.remove("active");
+
+            }
+        );
+
+    });
+
+
+
 /* =========================
    SLIDESHOW STATE
-   EACH SLIDESHOW IS SEPARATE
 ========================= */
 
 const slideshowState = {
@@ -1282,6 +1768,7 @@ const slideshowState = {
     member: 0
 
 };
+
 
 
 /* =========================
@@ -1298,6 +1785,7 @@ function getSlides(type) {
 
     }
 
+
     if (type === "celebration") {
 
         return document.querySelectorAll(
@@ -1305,6 +1793,7 @@ function getSlides(type) {
         );
 
     }
+
 
     if (type === "member") {
 
@@ -1314,34 +1803,46 @@ function getSlides(type) {
 
     }
 
+    return [];
+
 }
 
 
+
 /* =========================
-   GET DOT CONTAINER
+   GET DOTS
 ========================= */
 
 function getDots(type) {
 
     if (type === "idol") {
 
-        return document.getElementById("idolDots");
+        return document.getElementById(
+            "idolDots"
+        );
 
     }
+
 
     if (type === "celebration") {
 
-        return document.getElementById("celebrationDots");
+        return document.getElementById(
+            "celebrationDots"
+        );
 
     }
 
+
     if (type === "member") {
 
-        return document.getElementById("memberDots");
+        return document.getElementById(
+            "memberDots"
+        );
 
     }
 
 }
+
 
 
 /* =========================
@@ -1354,7 +1855,8 @@ function showSlide(type, index) {
 
     const dotsContainer = getDots(type);
 
-    if (!slides || slides.length === 0) {
+
+    if (!slides.length) {
         return;
     }
 
@@ -1363,11 +1865,16 @@ function showSlide(type, index) {
 
         slideshowState[type] = 0;
 
-    } else if (index < 0) {
+    }
 
-        slideshowState[type] = slides.length - 1;
+    else if (index < 0) {
 
-    } else {
+        slideshowState[type] =
+            slides.length - 1;
+
+    }
+
+    else {
 
         slideshowState[type] = index;
 
@@ -1394,7 +1901,9 @@ function showSlide(type, index) {
         const dot =
             document.createElement("span");
 
-        dot.className = "slide-dot";
+
+        dot.className =
+            "slide-dot";
 
 
         if (i === slideshowState[type]) {
@@ -1404,11 +1913,14 @@ function showSlide(type, index) {
         }
 
 
-        dot.onclick = function() {
+        dot.addEventListener(
+            "click",
+            function() {
 
-            showSlide(type, i);
+                showSlide(type, i);
 
-        };
+            }
+        );
 
 
         dotsContainer.appendChild(dot);
@@ -1416,6 +1928,7 @@ function showSlide(type, index) {
     });
 
 }
+
 
 
 /* =========================
@@ -1432,6 +1945,7 @@ function nextSlide(type) {
 }
 
 
+
 /* =========================
    PREVIOUS
 ========================= */
@@ -1446,16 +1960,6 @@ function previousSlide(type) {
 }
 
 
-/* =========================
-   INITIALIZE
-========================= */
-
-showSlide("idol", 0);
-
-showSlide("celebration", 0);
-
-showSlide("member", 0);
-
 
 /* =========================
    AUTO SLIDESHOW
@@ -1465,35 +1969,41 @@ setInterval(function() {
 
     nextSlide("idol");
 
-}, 4000);
+}, 5000);
 
 
 setInterval(function() {
 
     nextSlide("celebration");
 
-}, 4000);
+}, 5000);
 
 
 setInterval(function() {
 
     nextSlide("member");
 
-}, 4000);
+}, 5000);
+
 
 
 /* =========================
    MOBILE SWIPE
 ========================= */
 
-function enableSwipe(slideshowId, type) {
+function enableSwipe(
+    slideshowId,
+    type
+) {
 
     const slider =
-        document.getElementById(slideshowId);
+        document.getElementById(
+            slideshowId
+        );
+
 
     let startX = 0;
-
-    let endX = 0;
+    let startY = 0;
 
 
     slider.addEventListener(
@@ -1501,10 +2011,17 @@ function enableSwipe(slideshowId, type) {
         function(event) {
 
             startX =
-                event.changedTouches[0].screenX;
+                event.changedTouches[0]
+                .screenX;
+
+            startY =
+                event.changedTouches[0]
+                .screenY;
 
         },
-        { passive: true }
+        {
+            passive: true
+        }
     );
 
 
@@ -1512,35 +2029,70 @@ function enableSwipe(slideshowId, type) {
         "touchend",
         function(event) {
 
-            endX =
-                event.changedTouches[0].screenX;
+            const endX =
+                event.changedTouches[0]
+                .screenX;
+
+            const endY =
+                event.changedTouches[0]
+                .screenY;
 
 
-            const distance =
+            const distanceX =
                 endX - startX;
 
+            const distanceY =
+                endY - startY;
 
-            if (distance < -50) {
+
+            /*
+               Ignore vertical scrolling
+            */
+
+            if (
+                Math.abs(distanceX) <
+                Math.abs(distanceY)
+            ) {
+
+                return;
+
+            }
+
+
+            /*
+               Swipe left
+               = next
+            */
+
+            if (distanceX < -50) {
 
                 nextSlide(type);
 
             }
 
 
-            if (distance > 50) {
+            /*
+               Swipe right
+               = previous
+            */
+
+            if (distanceX > 50) {
 
                 previousSlide(type);
 
             }
 
         },
-        { passive: true }
+        {
+            passive: true
+        }
     );
 
 }
 
 
-/* Enable swipe separately */
+
+/* Enable swipe */
 
 enableSwipe(
     "idolSlideshow",
@@ -1560,6 +2112,7 @@ enableSwipe(
 );
 
 
+
 /* =========================
    IMAGE LIGHTBOX
 ========================= */
@@ -1567,17 +2120,29 @@ enableSwipe(
 function openImage(src) {
 
     const lightbox =
-        document.getElementById("lightbox");
+        document.getElementById(
+            "lightbox"
+        );
 
     const image =
-        document.getElementById("lightboxImage");
+        document.getElementById(
+            "lightboxImage"
+        );
+
 
     image.src = src;
 
-    lightbox.classList.add("active");
+    lightbox.classList.add(
+        "active"
+    );
 
 }
 
+
+
+/* =========================
+   CLOSE LIGHTBOX
+========================= */
 
 function closeImage() {
 
@@ -1588,7 +2153,9 @@ function closeImage() {
 }
 
 
-/* Prevent image click from closing lightbox */
+
+/* Don't close when
+   clicking the image */
 
 document
     .getElementById("lightboxImage")
@@ -1600,6 +2167,19 @@ document
 
         }
     );
+
+
+
+/* =========================
+   INITIALIZE
+========================= */
+
+showSlide("idol", 0);
+
+showSlide("celebration", 0);
+
+showSlide("member", 0);
+
 
 </script>
 
