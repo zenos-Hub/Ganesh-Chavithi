@@ -869,6 +869,27 @@ footer strong{
     opacity: 1;
     transform: scale(1.2);
 } 
+    /* Mobile Idol Slider */
+@media (max-width: 768px) {
+    .idol-slide {
+        width: 100%;
+        touch-action: pan-y;
+    }
+
+    .idol-slide img {
+        width: 100%;
+        height: auto;
+        max-height: 70vh;
+        object-fit: contain;
+        border-radius: 12px;
+    }
+
+    .slide-arrow {
+        width: 45px;
+        height: 45px;
+        font-size: 28px;
+    }
+}
 </style>
 </head>
 
@@ -1550,6 +1571,34 @@ showCelebration(0);
 setInterval(function () {
     nextCelebration();
 }, 4000);
+ /* Mobile Swipe Support */
+let touchStartX = 0;
+let touchEndX = 0;
+
+const idolSlider = document.querySelector("#idols");
+
+idolSlider.addEventListener("touchstart", function(event) {
+    touchStartX = event.changedTouches[0].screenX;
+}, { passive: true });
+
+idolSlider.addEventListener("touchend", function(event) {
+    touchEndX = event.changedTouches[0].screenX;
+    handleIdolSwipe();
+}, { passive: true });
+
+function handleIdolSwipe() {
+    const swipeDistance = touchEndX - touchStartX;
+
+    if (Math.abs(swipeDistance) < 50) return;
+
+    if (swipeDistance < 0) {
+        // Swipe left → next image
+        nextIdol();
+    } else {
+        // Swipe right → previous image
+        previousIdol();
+    }
+}         
 </script>
 </body>
 </html>
