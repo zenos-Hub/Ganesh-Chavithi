@@ -905,6 +905,139 @@ footer strong{
     }
 
 }
+    .admins-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+.admin-card {
+    flex: 1;
+    max-width: 350px;
+    text-align: center;
+}
+
+.admin-card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 18px;
+    cursor: pointer;
+}
+
+.admin-card h3 {
+    margin-top: 12px;
+    margin-bottom: 5px;
+}
+
+.admin-card p {
+    margin: 0;
+    font-weight: 600;
+}
+
+@media (max-width: 600px) {
+    .admins-container {
+        gap: 10px;
+    }
+
+    .admin-card img {
+        height: 220px;
+    }
+
+    .admin-card h3 {
+        font-size: 17px;
+    }
+
+    .admin-card p {
+        font-size: 14px;
+    }
+    .member-slideshow {
+    position: relative;
+    max-width: 900px;
+    margin: 30px auto;
+    overflow: hidden;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.member-slide {
+    display: none;
+}
+
+.member-slide.active {
+    display: block;
+}
+
+.member-slide img {
+    width: 100%;
+    max-width: 650px;
+    max-height: 500px;
+    object-fit: contain;
+    border-radius: 18px;
+    cursor: pointer;
+}
+
+.member-slide h3 {
+    margin-top: 15px;
+    font-size: 22px;
+}
+
+.member-prev,
+.member-next {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.65);
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.member-prev {
+    left: 15px;
+}
+
+.member-next {
+    right: 15px;
+}
+
+.member-dots {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.member-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background: #777;
+    cursor: pointer;
+}
+
+.member-dot.active {
+    background: #fff;
+}
+
+@media (max-width: 768px) {
+    .member-prev,
+    .member-next {
+        display: none;
+    }
+
+    .member-slide img {
+        max-height: 70vh;
+        object-fit: contain;
+    }
+}
 </style>
 </head>
 
@@ -932,6 +1065,20 @@ footer strong{
  <a href="https://www.instagram.com/boddurai_youth/" target="_blank" class="instagram-btn">
     <span>◎</span> Follow
 </a>
+      <div class="admins-container">
+
+    <div class="admin-card">
+        <img src="admin1.png" alt="Dathu" onclick="openImage(this.src)">
+        <h3>Dathu</h3>
+        <p>President</p>
+    </div>
+
+    <div class="admin-card">
+        <img src="admin2.png" alt="Nagendra Babu" onclick="openImage(this.src)">
+        <h3>Nagendra Babu</h3>
+        <p>Vice President</p>
+    </div>
+
 </div>
 
 </nav>
@@ -1315,47 +1462,47 @@ setInterval(function () {
     margin:0 auto 60px;
 ">
 
-    <div class="home-slide" style="text-align:center;">
-        <img src="member1.png" alt="A.Sai"
-             style="width:100%;border-radius:18px;display:block;">
-        <h4 style="margin-top:12px;font-size:18px;color:#fff;">A.Sai</h4>
+   <div class="member-slideshow">
+
+    <div class="member-slide active">
+        <img src="member1.png" alt="A.Sai" onclick="openImage(this.src)">
+        <h3>A.Sai</h3>
     </div>
 
-   <div class="home-slide" style="text-align:center;">
-        <img src="member2.png" alt="Shekar"
-             style="width:100%;border-radius:18px;display:block;">
-        <h4 style="margin-top:12px;font-size:18px;color:#fff;">Shekar</h4>
+    <div class="member-slide">
+        <img src="member2.png" alt="Shekar" onclick="openImage(this.src)">
+        <h3>Shekar</h3>
     </div>
 
-    <div class="home-slide" style="text-align:center;">
-        <img src="member3.png" alt="Murali"
-             style="width:100%;border-radius:18px;display:block;">
-        <h4 style="margin-top:12px;font-size:18px;color:#fff;">Murali</h4>
+    <div class="member-slide">
+        <img src="member3.png" alt="Murali" onclick="openImage(this.src)">
+        <h3>Murali</h3>
     </div>
 
-    <div class="home-slide" style="text-align:center;">
-        <img src="member4.png" alt="P.Sai"
-             style="width:100%;border-radius:18px;display:block;">
-        <h4 style="margin-top:12px;font-size:18px;color:#fff;">P.Sai</h4>
+    <div class="member-slide">
+        <img src="member4.png" alt="P.Sai" onclick="openImage(this.src)">
+        <h3>P.Sai</h3>
     </div>
 
-    <div class="home-slide" style="text-align:center;">
-        <img src="member5.png" alt="Phani"
-             style="width:100%;border-radius:18px;display:block;">
-        <h4 style="margin-top:12px;font-size:18px;color:#fff;">Phani</h4>
+    <div class="member-slide">
+        <img src="member5.png" alt="Phani" onclick="openImage(this.src)">
+        <h3>Phani</h3>
     </div>
 
-    <div class="home-slide" style="text-align:center;">
-        <img src="member6.png" alt="Pavan"
-             style="width:100%;border-radius:18px;display:block;">
-        <h4 style="margin-top:12px;font-size:18px;color:#fff;">Pavan</h4>
+    <div class="member-slide">
+        <img src="member6.png" alt="Pavan" onclick="openImage(this.src)">
+        <h3>Pavan</h3>
     </div>
 
-    <div class="home-slide" style="text-align:center;">
-        <img src="member7.png" alt="Amar"
-             style="width:100%;border-radius:18px;display:block;">
-        <h4 style="margin-top:12px;font-size:18px;color:#fff;">Amar</h4>
+    <div class="member-slide">
+        <img src="member7.png" alt="Amar" onclick="openImage(this.src)">
+        <h3>Amar</h3>
     </div>
+
+    <button class="member-prev" onclick="previousMember()">❮</button>
+    <button class="member-next" onclick="nextMember()">❯</button>
+
+    <div class="member-dots"></div>
 
 </div>
 
@@ -1643,6 +1790,92 @@ function handleIdolSwipe() {
         previousIdol();
     }
 }
+</script>
+    <script>
+let currentMember = 0;
+
+const memberSlides = document.querySelectorAll(".member-slide");
+const memberDotsContainer = document.querySelector(".member-dots");
+
+function showMember(index) {
+
+    if (memberSlides.length === 0) return;
+
+    if (index >= memberSlides.length) {
+        currentMember = 0;
+    } else if (index < 0) {
+        currentMember = memberSlides.length - 1;
+    } else {
+        currentMember = index;
+    }
+
+    memberSlides.forEach((slide, i) => {
+        slide.classList.toggle(
+            "active",
+            i === currentMember
+        );
+    });
+
+    memberDotsContainer.innerHTML = "";
+
+    memberSlides.forEach((slide, i) => {
+
+        const dot = document.createElement("span");
+
+        dot.className = "member-dot";
+
+        if (i === currentMember) {
+            dot.classList.add("active");
+        }
+
+        dot.onclick = function () {
+            showMember(i);
+        };
+
+        memberDotsContainer.appendChild(dot);
+    });
+}
+
+function nextMember() {
+    showMember(currentMember + 1);
+}
+
+function previousMember() {
+    showMember(currentMember - 1);
+}
+
+showMember(0);
+
+setInterval(function () {
+    nextMember();
+}, 4000);
+
+
+/* Mobile swipe */
+let memberTouchStartX = 0;
+let memberTouchEndX = 0;
+
+const memberSlider = document.querySelector(".member-slideshow");
+
+memberSlider.addEventListener("touchstart", function(e) {
+    memberTouchStartX = e.changedTouches[0].screenX;
+}, { passive: true });
+
+memberSlider.addEventListener("touchend", function(e) {
+    memberTouchEndX = e.changedTouches[0].screenX;
+
+    const distance =
+        memberTouchEndX - memberTouchStartX;
+
+    if (distance < -50) {
+        nextMember();
+    }
+
+    if (distance > 50) {
+        previousMember();
+    }
+}, { passive: true });
+
 </script>
 </body>
 </html>
